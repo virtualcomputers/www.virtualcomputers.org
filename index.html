@@ -1,0 +1,128 @@
+<html>
+    <head>
+	<title>VirtualComputers.org</title>
+	<style>
+.vc-mfg-item {
+    background: #e0c000;
+    padding: 3px 0px 3px 10px;
+    margin-top: 5px;
+    width: 800px;
+}
+.vc-open-item {
+    display: inline-block;
+}
+.vc-open-item-button {
+    display: inline-block;
+    font-size: 12pt;
+    background:none;
+    border:none;
+    margin:0;
+    padding:0;
+    padding-right: 5px;
+    width:21;
+}
+.vc-mfg-item-label {
+    display: inline-block;
+    font-size: 18pt;
+}
+.vc-arch-item {
+    background: #e0c080;
+    padding-left: 10px;
+    margin-top: 5px;
+    margin-left: 10px;
+    width: 790px;
+}
+.vc-model-item {
+    background: #e0c0b0;
+    padding-left: 10px;
+    margin-top: 5px;
+    margin-left: 20px;
+    width: 780px;
+}
+	</style>
+	<script>
+function button_click(button, id) {
+    console.log("Button Click: ");
+    console.log("This:", button);
+    console.log("Value:", button.value);
+    console.log("Id:", button.id);
+    if (button.value != "\u25B6")
+	button.value = "\u25B6";
+    else
+	button.value = "\u25BC";
+    console.log("Value2:", button.value);
+    var item = document.getElementById(id);
+    console.log("Hidden:", item.hidden);
+    item.hidden = (button.value == "\u25B6");
+}
+	button_click("Key");
+	</script>
+    </head>
+    <body>
+	<div class="vc-main">
+	    <div class="vc-mfg-list">
+		<div class="vc-mfg-item">
+		    <div class="vc-open-item" id="vc-open-item-button-id1-parent">
+			<input type="button" value="&#x25B6;" class="vc-open-item-button" id="vc-open-item-button-id1" onclick="button_click(this, 'vc-arch-list-dec')" />
+		    </div>
+		    <div class="vc-mfg-item-label">
+			DEC
+		    </div>
+		</div>
+		<div class="vc-arch-list" id="vc-arch-list-dec" hidden>
+		    <div class="vc-arch-item">
+			<div class="vc-open-item">
+			    <button class="vc-open-item-button">&#x25B6;</button>
+			</div>
+			<div class="vc-mfg-item-label">
+			    PDP-10
+			</div>
+		    </div>
+		    <div class="vc-arch-item">
+			<div class="vc-open-item">
+			    <input type="button" value="&#x25B6;" class="vc-open-item-button" onclick="button_click(this, 'vc-model-list-dec-pdp-11')" />
+			</div>
+			<div class="vc-mfg-item-label">
+			    PDP-11
+			</div>
+		    </div>
+		    <div class="vc-model-list" id="vc-model-list-dec-pdp-11" hidden>
+			<div class="vc-model-item">
+			    <div class="vc-open-item">
+				<button class="vc-open-item-button">&#x25B6;</button>
+			    </div>
+			    <div class="vc-mfg-item-label">
+				PDP-11/70
+			    </div>
+			</div>
+			<div class="vc-model-item">
+			    <div class="vc-open-item">
+				<button class="vc-open-item-button">&#x25B6;</button>
+			    </div>
+			    <div class="vc-mfg-item-label">
+				PDP-11/45
+			    </div>
+			</div>
+		    </div>
+		    <div class="vc-arch-item">
+			<div class="vc-open-item">
+			    <button class="vc-open-item-button">&#x25B6;</button>
+			</div>
+			<div class="vc-mfg-item-label">
+			    VAX
+			</div>
+		    </div>
+		</div>
+		<div class="vc-mfg-item">
+		    <div class="vc-open-item">
+			<button class="vc-open-item-button">&#x25B6;</button>
+		    </div>
+		    <div class="vc-mfg-item-label">
+			IBM
+		    </div>
+		</div>
+	    </div>
+	</div>
+    </body>
+</html>
+

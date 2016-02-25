@@ -1,0 +1,69 @@
+
+create manufacture (
+	id serial,
+	name text,
+	description text,
+    );
+
+create architecture (
+	id serial,
+	name text,
+	description text,
+	manuf integer
+    );
+
+create model (
+	id serial,
+	name text,
+	description text,
+	architecture integer
+    );
+
+create machine (
+	id serial,
+	name text,
+	description text,
+	model integer,
+	config text
+    );
+
+create table term_type (
+	id serial,
+	name text
+    );
+
+create table terminal (
+	id serial,
+	machine integer,
+	port text,
+	description text,
+	display_chan text,
+	keyboard_chan text,
+	chat_chan text
+    );
+
+create table term_stream_data (
+	id serial,
+	termid integer,
+	tt integer,
+	ttype integer,
+	width smallint,
+	height smallint,
+	data text
+    );
+
+create table term_state (
+	id serial,
+	termid integer,
+	tt integer,
+	state text
+    );
+
+create table term_image (
+	id serial,
+	state integer,
+	width smallint,
+	height smallint,
+	path text
+    );
+

@@ -1,0 +1,29 @@
+@font-face {
+    font-family: GlassTTY;
+    src: url(/vc/fonts/Glass_TTY_VT220.ttf);
+}
+.terminaljs {
+    background: rgba(0,0,0,0);
+    color: white;
+    font-family: Courier, monospace;
+    font-size: 9pt;
+    display: inline-block;
+}
+body {
+}
+.terminal-tube {
+    background: #808090;
+    padding: 20px;
+    box-shadow: inset 0px 0px 40px 0px rgba(0,0,0,0.9);
+    border-radius: 40px;
+    max-width: 808px;
+    float: left;
+} 
+.terminal-bezel {
+    padding: 30px;
+    background: black;
+    border-radius: 15px;
+    max-width: 868px;
+    max-height: 508px;
+    float: left;
+}

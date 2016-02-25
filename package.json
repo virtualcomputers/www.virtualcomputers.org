@@ -1,0 +1,14 @@
+{
+  "name": "vcomp-termserver",
+  "version": "0.1.0",
+  "description": "Terminal Server for VirtualComputers.org",
+  "main": "term-server.js",
+  "scripts": {
+    "test": "./term-server.js"
+  },
+  "author": "",
+  "license": "BSD-3-Clause",
+  "dependencies": {
+    "express": "^4.13.4"
+  }
+}
