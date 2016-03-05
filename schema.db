@@ -1,25 +1,25 @@
 
-create manufacture (
+create table manufacture (
 	id serial,
 	name text,
-	description text,
+	description text
     );
 
-create architecture (
+create table architecture (
 	id serial,
 	name text,
 	description text,
 	manuf integer
     );
 
-create model (
+create table model (
 	id serial,
 	name text,
 	description text,
 	architecture integer
     );
 
-create machine (
+create table machine (
 	id serial,
 	name text,
 	description text,
