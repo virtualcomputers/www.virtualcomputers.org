@@ -5,7 +5,7 @@ function TermApp(term, id, pn)
 
     if (this == null || (!(this instanceof TermApp)))
     {
-	console.log("New");
+//	console.log("New");
 	return new TermApp(term, id, pn);
     }
 
@@ -19,17 +19,17 @@ function TermApp(term, id, pn)
     this.termtype = null;
     this.width = -1;
     this.heigth = -1;
-    console.log("This:", this);
+//    console.log("This:", this);
     return this;
 }
 
 TermApp.prototype._fetchjson = function (url, cb)
 {
-    console.log("FetchJSON:", url);
+//    console.log("FetchJSON:", url);
     var req = new XMLHttpRequest();
     req.onreadystatechange = function()
 	{
-	    console.log("XHR State:", req.readyState, "Status:", req.status);
+//	    console.log("XHR State:", req.readyState, "Status:", req.status);
 
 	    if (req.readyState == 4 && req.status == 200)
 	    {
@@ -43,15 +43,14 @@ TermApp.prototype._fetchjson = function (url, cb)
 		{
 		}
 
-		console.log("JS:", js);
-if (0)
+//		console.log("JS:", js);
 		cb(js);
 	    }
 	};
     req.open("GET", url, true);
     req.send();
 
-if (1)
+if (0)
     cb({
 	 "id": 1,
 	 "machine": 0,
@@ -65,8 +64,8 @@ if (1)
 
 TermApp.prototype.open = function (container, uuid, cb)
 {
-    console.log("Open:", container, cb);
-    this._fetchjson("/vc/terminfo.php?id=" + this.id, this._setup.bind(this, container, uuid, cb));
+//    console.log("Open:", container, cb);
+    this._fetchjson("/terminal/" + this.id, this._setup.bind(this, container, uuid, cb));
 };
 
 TermApp.prototype._get = function (obj, key, def)
@@ -95,9 +94,7 @@ TermApp.prototype._setup = function (container, uuid, cb, obj)
 	});
 
     var us = this;
-    var f2 = function () { us._read.call(us, this); }
-
-    term.dom(container).on('readable', f2);
+    term.dom(container).on('readable', function () { us._read.call(us, this); });
     cb(this.description == null ? "Terminal" : this.description);
 };
 
@@ -121,7 +118,7 @@ TermApp.prototype._publish = function (obj)
 
 TermApp.prototype._message = function (message, env, ch, timer, magic_ch)
 {
-    console.log("Message", message);
+//    console.log("Message", message);
     this.write(message["d"]);
 }
 

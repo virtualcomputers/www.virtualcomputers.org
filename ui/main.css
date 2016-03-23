@@ -1,0 +1,67 @@
+.vc-mfg-item {
+    background: #e0c000;
+    padding: 3px 0px 3px 10px;
+    margin-top: 5px;
+    width: 800px;
+}
+.vc-arch-item {
+    background: #e0c080;
+    padding-left: 10px;
+    margin-top: 5px;
+    margin-left: 10px;
+    width: 790px;
+}
+.vc-model-item {
+    background: #e0c0b0;
+    padding-left: 10px;
+    margin-top: 5px;
+    margin-left: 20px;
+    width: 780px;
+}
+.vc-mach-item {
+    background: #e0c0c8;
+    padding-left: 10px;
+    margin-top: 5px;
+    margin-left: 30px;
+    width: 770px;
+}
+.vc-open-item {
+    display: inline-block;
+}
+.vc-open-item-button {
+    display: inline-block;
+    font-size: 12pt;
+    background:none;
+    border:none;
+    margin:0;
+    padding:0;
+    padding-right: 5px;
+    width:21;
+}
+.vc-open-item-button-hidden {
+    display: inline-block;
+    font-size: 12pt;
+    background:none;
+    color: rgba(0,0,0,0);
+    border:none;
+    margin:0;
+    padding:0;
+    padding-right: 5px;
+    width:21;
+}
+.vc-mfg-item-label {
+    display: inline-block;
+    font-size: 18pt;
+}
+.vc-arch-item-label {
+    display: inline-block;
+    font-size: 18pt;
+}
+.vc-model-item-label {
+    display: inline-block;
+    font-size: 18pt;
+}
+.vc-mach-item-label {
+    display: inline-block;
+    font-size: 18pt;
+}

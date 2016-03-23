@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<title>PubNub Terminal</title>
+	<meta charset="utf-8" />
+	<script src="https://cdn.pubnub.com/pubnub-3.7.18.min.js"></script>
+	<script src="node_modules/terminal.js/dist/terminal.js"></script>
+	<script src="termapp.js"></script>
+	<link rel="stylesheet" type="text/css" href="termapp.css">
+	<script>
+	    // Setup PubNub
+	    var pn = PUBNUB(
+		{
+		    "publish_key": "pub-c-fa10e0fa-af48-48b1-8e8e-24de51b76154",
+		    "subscribe_key": "sub-c-107aa3a0-b760-11e5-b089-02ee2ddab7fe"
+		});
+
+	    // Get PubNub Unique User id
+	    var uuid = PUBNUB.db.get('session');
+//	    console.log("UUID:", uuid);
+	    if (!uuid)
+	    {
+		// Get PubNub Unique User id
+		uuid = PUBNUB.uuid(); 
+		PUBNUB.db.set('session', uuid); 
+	    }
+
+	    // After the page is loaded this function is called to startup the app
+	    function setup()
+	    {
+//		console.log("Welcome!");
+
+		// Get the terminaljs class div's from the dom
+		var containers = document.getElementsByClassName('terminaljs');
+
+//		console.log("# Containers", containers.length);
+
+		// Get the terminal id's from the query string
+		var ids = [ ];
+		var query = window.location.search.substring(1);
+		var vars = query.split('&');
+
+		for (var i = 0; i < vars.length; i++)
+		{
+		    var pair = vars[i].split('=');
+
+		    if (decodeURIComponent(pair[0]) == "id")
+		    {
+			ids = decodeURIComponent(pair[1]).split(',');
+			break;
+		    }
+		}
+
+		// Make sure that id was included in the query string
+		if (i < vars.length)
+		{
+		    // Instantiate a TermApp object for each container
+		    for (var i = 0; i < containers.length; i++)
+		    {
+			var container = containers[i];
+
+			// setting tabindex makes the element focusable
+			container.tabindex = 0;
+
+			// use data-* attributes to configure terminal 
+			var app = TermApp(new Terminal(container.dataset), ids[i], pn);
+			app.open(container, uuid, function (title) {
+//				console.log("Title:", title);
+				document.title = title;
+			    });
+		    }
+		}
+	    }
+	</script>
+    </head>
+    <body onload="setup()">
+	<div class="terminal-bezel">
+	    <div class="terminal-tube">
+		<pre class="terminaljs" data-columns="80" data-rows="24"></pre>
+	    </div>
+	</div>
+    </body>
+</html>
